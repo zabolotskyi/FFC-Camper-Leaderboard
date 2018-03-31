@@ -1,0 +1,15 @@
+@charset "UTF-8";
+.main {
+  margin-top: 30px;
+}
+
+.sorted:after {
+  content: " ▼";
+  font-size: 14px;
+}
+
+.img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
