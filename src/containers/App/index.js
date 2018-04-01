@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import store from '../store/store';
-import Body from './Body';
+import store from '../../store/store';
+import CamperList from '../CamperList';
 
 export default class App extends React.Component {
   render() {
@@ -10,7 +10,7 @@ export default class App extends React.Component {
         <div className='container'>
           <div className='row'>
             <div className='col-md-12'>
-              <Body />
+              <CamperList />
             </div>
           </div>
         </div>

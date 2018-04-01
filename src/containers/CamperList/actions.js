@@ -1,8 +1,9 @@
-const RECENT = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
-const ALLTIME = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';
-
-export const FETCH_RECENT = 'FETCH_RECENT';
-export const FETCH_ALLTIME = 'FETCH_ALLTIME';
+import {
+    FETCH_RECENT,
+    FETCH_ALLTIME,
+    RECENT,
+    ALLTIME
+} from './constants';
 
 export const fetchRecent = () => {
     return async dispatch => {
