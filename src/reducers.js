@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import CampersReducer from './containers/CamperList/reducers';
+import CampersReducer from './components/TableHeader/reducers';
 
 export default combineReducers({
     CampersReducer

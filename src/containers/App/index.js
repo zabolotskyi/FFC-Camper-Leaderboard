@@ -6,15 +6,13 @@ import CamperList from '../CamperList';
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store={store}>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-md-12'>
-              <CamperList />
-            </div>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-md-12'>
+            <CamperList />
           </div>
         </div>
-      </Provider>
+      </div>
     );
   }
 }

@@ -8,6 +8,26 @@
   font-size: 14px;
 }
 
+.clickable:hover {
+  cursor: pointer;
+}
+
+#col1 {
+  width: 90px;
+}
+
+#col2 {
+  width: 405px;
+}
+
+#col3 {
+  width: 400px;
+}
+
+#col4 {
+  width: 250px;
+}
+
 .img {
   width: 30px;
   height: 30px;
