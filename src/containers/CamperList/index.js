@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-//import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { fetchRecent, fetchAlltime } from './actions';
 import { selectRecentCampers, selectAllTimeCampers } from './selectors';
-//import * as pageActions from './actions';
 import Camper from '../../components/Camper/index';
 import TableHeader from '../../components/TableHeader/index';
 
@@ -25,9 +23,9 @@ class CamperList extends React.Component {
     if (filter !== this.state.filteredRecent) {
       this.setState({filteredRecent: filter});
       if (filter) {
-        this.props.dispatch(fetchRecent());
+        this.props.onFetchRecent();
       } else {
-        this.props.dispatch(fetchAlltime());
+        this.props.onFetchAllTime();
       }
     }
   }
@@ -36,13 +34,13 @@ class CamperList extends React.Component {
     const { recentCampers, allTimeCampers } = this.props;
     const { filteredRecent } = this.state;
     let position = 0;
-    const recentCampersList = this.props.recentCampers.map((camper) => {
+    const recentCampersList = recentCampers.map((camper) => {
       position++;
       return (
         <Camper camper={camper} key={camper.username} position={position} />
       );
     });
-    const allTimeCampersList = this.props.allTimeCampers.map((camper) => {
+    const allTimeCampersList = allTimeCampers.map((camper) => {
       position++;
       return (
         <Camper camper={camper} key={camper.username} position={position} />
@@ -65,8 +63,9 @@ const mapStateToProps = createStructuredSelector({
   allTimeCampers: selectAllTimeCampers()
 });
 
-const mapDispatchToProps = (dispatch) => {
-  //
+const mapDispatchToProps =  {
+  onFetchRecent: fetchRecent,
+  onFetchAllTime: fetchAlltime
 }
 
 export default connect (mapStateToProps, mapDispatchToProps)(CamperList);
