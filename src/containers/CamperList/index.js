@@ -16,10 +16,11 @@ class CamperList extends React.Component {
   }
 
   componentDidMount = () => {
-    this.props.dispatch(fetchRecent());
+    this.props.onFetchRecent();
   }
 
   sortCampers = (filter) => {
+    console.log(filter);
     if (filter !== this.state.filteredRecent) {
       this.setState({filteredRecent: filter});
       if (filter) {
@@ -33,22 +34,19 @@ class CamperList extends React.Component {
   render() {
     const { recentCampers, allTimeCampers } = this.props;
     const { filteredRecent } = this.state;
-    let position = 0;
-    const recentCampersList = recentCampers.map((camper) => {
-      position++;
+    const recentCampersList = recentCampers.map((camper, index) => {
       return (
-        <Camper camper={camper} key={camper.username} position={position} />
+        <Camper camper={camper} key={camper.username} position={++index} />
       );
     });
-    const allTimeCampersList = allTimeCampers.map((camper) => {
-      position++;
+    const allTimeCampersList = allTimeCampers.map((camper, index) => {
       return (
-        <Camper camper={camper} key={camper.username} position={position} />
+        <Camper camper={camper} key={camper.username} position={++index} />
       );
     });
     return (
       <table className='table table-striped table-bordered main'>
-        <TableHeader sortCampers={this.props.sortCampers} />
+        <TableHeader sortCampers={this.sortCampers} />
         <tbody>
           {filteredRecent && recentCampersList}
           {!filteredRecent && allTimeCampersList}

@@ -27,7 +27,7 @@ export const fetchAlltime = () => {
     return async dispatch => {
         try {
             const response = await fetch(ALLTIME)
-            const json = response.json()
+            const json = await response.json()
             dispatch({
                 type: FETCH_ALLTIME,
                 payload: json

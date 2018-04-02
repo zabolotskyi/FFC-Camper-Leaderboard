@@ -1,4 +1,2 @@
-import CampersReducer from './reducers';
-
-export const selectRecentCampers = () => state => CampersReducer.campers;
-export const selectAllTimeCampers = () => state => CampersReducer.campers;
+export const selectRecentCampers = () => state => state.CampersReducer.campers;
+export const selectAllTimeCampers = () => state => state.CampersReducer.campers;
