@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCampers, selectSortingType } from './selectors';
-import Camper from '../../components/Camper/index';
-import TableHeader from '../../components/TableHeader/index';
+import { fetchRecent } from './actions';
+import Camper from './Camper';
+import TableHeader from './TableHeader';
 
-class CamperList extends React.Component {
+class CamperList extends Component {
+
+  componentDidMount = () => {
+    this.props.onFetchRecent();
+  }
 
   render() {
     const { campersList } = this.props;
@@ -29,4 +34,8 @@ const mapStateToProps = createStructuredSelector({
   campersList: selectCampers()
 });
 
-export default connect(mapStateToProps)(CamperList);
+const mapDispatchToProps = {
+  onFetchRecent: fetchRecent
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CamperList);

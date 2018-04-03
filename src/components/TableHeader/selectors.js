@@ -1,1 +1,0 @@
-export const selectSortingType = () => state => state.CampersReducer.sortingType;

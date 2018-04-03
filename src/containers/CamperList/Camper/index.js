@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Camper extends React.Component {
+export default class Camper extends Component {
   render() {
     const { position, camper: { username, img, recent, alltime } } = this.props;
     return (
